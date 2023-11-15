@@ -2,7 +2,7 @@
 
 import { useBoardStore } from '@/store/BoardStore'
 import { useEffect } from 'react'
-import { DragDropContext, DropResult, Droppable } from 'react-beautiful-dnd'
+import { DragDropContext, DropResult, Droppable } from '@hello-pangea/dnd'
 import Column from './Column'
 
 export default function Board() {
@@ -13,7 +13,7 @@ export default function Board() {
   }, [getBoard])
 
   const handleOnDragEnd = (result: DropResult) => {
-    
+
   }
 
   return (
@@ -24,7 +24,11 @@ export default function Board() {
             className='grid grid-cols-1 md:grid-cols-3 gap-5 max-w-7xl mx-auto'>{
               Array.from(board.columns.entries()).map(([id, column], index) => (
                 <Column
-                  key={id} id={id} todos={column.todos} index={index} />
+                  key={id}
+                  id={id}
+                  todos={column.todos}
+                  index={index}
+                />
               ))
             }
           </div>
