@@ -92,7 +92,7 @@ export default function Board() {
       <Droppable droppableId='board' direction='horizontal' type='column'>
         {(provided) => (
           <div {...provided.droppableProps} ref={provided.innerRef}
-            className='grid grid-cols-1 md:grid-cols-3 gap-5 max-w-7xl mx-auto'>{
+            className='grid grid-cols-1 md:grid-cols-3 gap-5 max-w-7xl py-5 mx-auto'>{
               Array.from(board.columns.entries()).map(([id, column], index) => (
                 <Column
                   key={id}

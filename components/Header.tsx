@@ -4,7 +4,7 @@ import { MdOutlineTaskAlt } from 'react-icons/md'
 import { HiMagnifyingGlass, HiMiniUserCircle } from 'react-icons/hi2'
 import Avatar from 'react-avatar'
 import { useBoardStore } from '@/store/BoardStore'
-import fetchSuggestion from '@/lib/fetchSuggestion'
+
 
 
 export default function Header() {
@@ -15,19 +15,6 @@ export default function Header() {
   ])
   const [loading, setLoading] = useState<boolean>(false);
   const [suggestion, setSuggestion] = useState<string>("");
-
-  useEffect(() => {
-    if (board.columns.size === 0) return;
-    setLoading(true);
-
-    const fetchSuggestionFunction = async () => {
-      const suggestion = await fetchSuggestion(board);
-      setSuggestion(suggestion);
-      setLoading(false);
-    }
-
-    fetchSuggestionFunction();
-  }, [board])
 
   return (
     <header>
@@ -61,12 +48,12 @@ export default function Header() {
 
       </div>
 
-      <div className='flex items-center justify-center px-5 py-2 md:py-5'>
+      {/* <div className='flex items-center justify-center px-5 py-2 md:py-5'>
         <p className='flex items-center text-sm font-light pr-5 shadow-xl rounded-xl w-fit bg-white italic max-w-3xl text-[#008000]'>
           <HiMiniUserCircle className=	{`inline-block h-10 w-10 text-[#008000] mr-1 ${loading && 'animate-pulse'}`} />
           {suggestion && !loading ? suggestion : 'Glad to see you!'}
         </p>
-      </div>
+      </div> */}
 
     </header>
   )
