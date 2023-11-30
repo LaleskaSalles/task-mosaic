@@ -64,6 +64,7 @@ export default function TodoCard({
                         alt="Task Image"
                         width={400}
                         height={200}
+                        priority={true}
                         className='w-full h-44 object-contain rounded-d-md'
                     />
 
