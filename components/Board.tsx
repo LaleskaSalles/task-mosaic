@@ -31,19 +31,21 @@ export default function Board() {
     }
 
     const columns = Array.from(board.columns);
-    const startColIndex = columns[Number(source.droppableId)];
-    const finishColIndex = columns[Number(destination.droppableId)];
+    const startColIndex = columns && columns[Number(source.droppableId)];
+    const finishColIndex = columns && columns[Number(destination.droppableId)];
 
-    const startCol: Column = {
+    const startCol: Column | undefined = startColIndex
+  ? {
       id: startColIndex[0],
-      todos: startColIndex[1].todos
+      todos: startColIndex[1].todos,
     }
+  : undefined;
 
-    const finishCol: Column = {
+    const finishCol: Column | undefined = finishColIndex
+  ? {
       id: finishColIndex[0],
-      todos: finishColIndex[1].todos
-    }
-
+      todos: finishColIndex[1].todos,
+  } : undefined;
 
     if (!startCol || !finishCol) return;
 
